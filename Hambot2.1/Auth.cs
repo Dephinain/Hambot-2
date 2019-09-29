@@ -6,8 +6,8 @@ namespace Hambot2._1
 {
     public class Auth
     {
-        private const string discord_token = "<insert token here";
-        private const string youtube_key = "<insert token here>";
+        private const string discord_token = "nah";
+        private const string youtube_key = "nope";
 
         public string GetDiscordToken()
         {
