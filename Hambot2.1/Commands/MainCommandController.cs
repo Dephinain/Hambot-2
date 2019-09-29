@@ -6,7 +6,12 @@ namespace Hambot2._1.Commands
 {
     public class MainCommandController
     {
-        public YoutubeLogic.YoutubeLogic YoutubeLogic;
+        public readonly YoutubeLogic.YoutubeLogic _youtubeLogic;
+
+        public MainCommandController()
+        {
+            _youtubeLogic = new YoutubeLogic.YoutubeLogic();
+        }
 
         [Command("yello")]
         public async Task Yello(CommandContext context)
@@ -19,7 +24,7 @@ namespace Hambot2._1.Commands
         public async Task YoutubeSearch(CommandContext context, string searchTerm)
         {
             await context.TriggerTypingAsync();
-            var test = YoutubeLogic.YoutubeSearch(context.RawArgumentString);
+            var test = _youtubeLogic.YoutubeSearch(context.RawArgumentString);
             await context.RespondAsync($"https://www.youtube.com/watch?v=" + test.Id.VideoId);
         }
 
