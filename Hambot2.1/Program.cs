@@ -38,6 +38,7 @@ namespace Hambot2._1
 
             _commands.RegisterCommands<MainCommandController>();
             _commands.RegisterCommands<ImgurCommandController>();
+            _commands.RegisterCommands<TumblrCommandController>();
 
             await _discord.ConnectAsync();
             await Task.Delay(-1);
