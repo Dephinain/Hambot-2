@@ -34,7 +34,7 @@ namespace Hambot2._1.YoutubeLogic
                 }
                 return null;
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 Console.Write("Error: " + ex.Message);
                 return null;
