@@ -24,7 +24,6 @@ namespace Hambot2._1.TumblrLogic
                 var posts = GetTargetComboStrip(client);
                 var post = posts.Result.Result.ElementAtOrDefault(new Random().Next(0, posts.Result.Result.Count()));
                 var photo = (PhotoPost)post;
-                var url = photo.Photo.OriginalSize.ImageUrl;
 
                 var embedPost = new DiscordEmbedBuilder
                 {
