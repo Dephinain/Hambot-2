@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using DontPanic.TumblrSharp;
 using DontPanic.TumblrSharp.Client;
 using DontPanic.TumblrSharp.OAuth;
+using DSharpPlus.Entities;
 
 namespace Hambot2._1.TumblrLogic
 {
     public class TargetComboLogic
     {
-       public string SendTargetComboStrip()
+       public DiscordEmbed SendTargetComboStrip()
         {
             try
             {
@@ -23,10 +24,15 @@ namespace Hambot2._1.TumblrLogic
                 var posts = GetTargetComboStrip(client);
                 var post = posts.Result.Result.ElementAtOrDefault(new Random().Next(0, posts.Result.Result.Count()));
                 var photo = (PhotoPost)post;
-               var url = photo.Photo.OriginalSize.ImageUrl;
+                var url = photo.Photo.OriginalSize.ImageUrl;
 
+                var embedPost = new DiscordEmbedBuilder
+                {
+                    Title = post.Summary,
+                    ImageUrl = photo.Photo.OriginalSize.ImageUrl
+                };
 
-               return url;
+                return embedPost;
             }
             catch (Exception e)
             {

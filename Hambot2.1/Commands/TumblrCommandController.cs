@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using DontPanic.TumblrSharp.Client;
+﻿using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Entities;
 using Hambot2._1.TumblrLogic;
 
 namespace Hambot2._1.Commands
@@ -21,8 +18,8 @@ namespace Hambot2._1.Commands
         public async Task TargetCombo(CommandContext context)
         {
            await context.TriggerTypingAsync();
-            var comic = _targetComboLogic.SendTargetComboStrip();
-            await context.RespondAsync(comic);
+           var comic = _targetComboLogic.SendTargetComboStrip();
+           await context.RespondAsync(embed: comic);
         }
     }
 }
